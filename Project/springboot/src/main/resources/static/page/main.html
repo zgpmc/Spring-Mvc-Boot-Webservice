@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://code.jquery.com/jquery-3.3.1.js" crossorigin="anonymous"></script>
+    <script src="../js/comjs.js"></script>
+</head>
+<style type="text/css">
+    table {
+        border: 1px solid limegreen;
+    }
+
+    td {
+        border: 1px solid burlywood;
+    }
+</style>
+<body>
+<h3>测试</h3>
+<table id="msg0"></table>
+<h3>hello word</h3>
+<br>
+<h3>bdcinfo</h3>
+<table id="msg"></table>
+<br>
+<h3>netobdc</h3>
+<table id="msg1"></table>
+<script type="text/javascript">
+    var urls = comjs.gethome() + "sp/login/my";
+    var urls1 = comjs.gethome() + "sp/login/net";
+    var urt = comjs.gethome() + "/test";
+    var data = {'name': 'pmc', 'pas': '666'};
+    show(urt, 'msg0');
+    show(urls, 'msg');
+    show(urls1, 'msg1');
+
+    function show(url, id) {
+        $.ajax({
+            url: url,
+            data: data,
+            dataType: "json",
+            success: function (data) {
+                var tr = "";
+                for (i in data) {
+                    tr += "<tr><td>userid:</td><td>" + data[i].userid + "</td><td>loginname</td>" +
+                        "<td>" + data[i].loginname + "</td><td>username</td><td>" + data[i].username + "</td></tr>"
+                }
+                $('#' + id).append(tr);
+            },
+            error: function (err) {
+                //alert(err)
+            }
+        });
+    }
+</script>
+</body>
+</html>
