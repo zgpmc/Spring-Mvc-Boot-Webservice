@@ -19,7 +19,7 @@ import java.util.List;
  * 描述:
  */
 @RestController
-@RequestMapping(value = "")
+@RequestMapping(value = "/login")
 public class CtrlLogin
 {
     @Autowired

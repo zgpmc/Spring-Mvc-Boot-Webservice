@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="script/comjs.js"></script>
+</head>
+<body>
+首页
+<input id="name" type="text" value=""/>
+<input id="psd" type="password" value=""/>
+记住密码?<input id="jzmm" type="checkbox"/>
+<button onclick="get()">点击</button>
+<div id="pmsg"></div>
+</body>
+<script type="text/javascript">
+    var jz = comjs.getcookie("jzmm");
+    if (jz == 1) {
+        var ps = comjs.getcookie("ps");
+        $('#name').val(comjs.getcookie("username"));
+        $('#psd').val(substr(ps, 0, ps.length - 2));
+    }
+
+    function get() {
+        var da = $('#name').val();
+        var ps = $('#psd').val();
+        var p1 = {name: da, psd: ps};
+        var obj = ajax(p1);
+    }
+
+    function ajax(param) {
+        var jzmm = $('#jzmm')[0].checked ? 1 : 0;
+        var res = null;
+        if (!param) {
+            return res;
+        }
+        $.ajax({
+            url: comjs.gethome() + "home/login",
+            data: param,
+            type: "post",
+            async: false,
+            dataType: 'json',
+            success: function (data) {
+                if ('success' == data.code) {
+                    var user = data.data;
+                    comjs.setcookie("userid", user.USERID);
+                    comjs.setcookie("username", user.LOGIN_NAME);
+                    comjs.setcookie("ssid", user.SSID);
+                    comjs.setcookie("ps", param.ps + "xx");
+                    comjs.setcookie('jzmm', jzmm);
+                    comjs.setcookie('online', user.ISONLINE);
+                    window.location = comjs.gethome() + "page/pgmain.html?data=6";
+                } else {
+                    comjs.msg(data);
+                }
+            },
+            error: function (err) {
+                alert('登录失败！');
+            }
+        });
+        return res;
+    }
+</script>
+</html>

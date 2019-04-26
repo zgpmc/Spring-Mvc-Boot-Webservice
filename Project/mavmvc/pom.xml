@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     
-    <name>maven spring mvc Maven Webapp</name>
+    <name>maven spring mvc</name>
     <!-- FIXME change it to the project's website -->
     <url>http://maven.apache.org</url>
     
@@ -54,12 +54,6 @@
             <artifactId>orcl</artifactId>
             <scope>system</scope>
             <systemPath>${basedir}/lib/ojdbc6.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>dbservice</groupId>
-            <artifactId>orcl</artifactId>
-            <scope>system</scope>
-            <systemPath>${basedir}/lib/dbservice-1.0.6.jar</systemPath>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
