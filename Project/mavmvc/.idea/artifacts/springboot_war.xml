@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" external-system-id="Maven" name="springboot:war">
-    <output-path>$PROJECT_DIR$/../springboot/target</output-path>
-    <root id="archive" name="springbootm.war">
-      <element id="artifact" artifact-name="springboot:war exploded" />
-    </root>
-  </artifact>
-</component>

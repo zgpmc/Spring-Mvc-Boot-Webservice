@@ -17,7 +17,7 @@
 </style>
 <body>
 <h3>测试</h3>
-<table id="msg0"></table>
+<p id="msg0"></p>
 <h3>hello word</h3>
 <br>
 <h3>bdcinfo</h3>
@@ -26,9 +26,9 @@
 <h3>netobdc</h3>
 <table id="msg1"></table>
 <script type="text/javascript">
-    var urls = comjs.gethome() + "sp/login/my";
-    var urls1 = comjs.gethome() + "sp/login/net";
-    var urt = comjs.gethome() + "/test";
+    var urt = comjs.gethome() + "test";
+    var urls = comjs.gethome() + "login/my";
+    var urls1 = comjs.gethome() + "login/net";
     var data = {'name': 'pmc', 'pas': '666'};
     show(urt, 'msg0');
     show(urls, 'msg');
@@ -41,6 +41,10 @@
             dataType: "json",
             success: function (data) {
                 var tr = "";
+                if (id == "msg0") {
+                    $("#" + id).text(data);
+                    return;
+                }
                 for (i in data) {
                     tr += "<tr><td>userid:</td><td>" + data[i].userid + "</td><td>loginname</td>" +
                         "<td>" + data[i].loginname + "</td><td>username</td><td>" + data[i].username + "</td></tr>"

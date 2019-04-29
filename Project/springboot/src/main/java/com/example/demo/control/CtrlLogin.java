@@ -19,7 +19,7 @@ import java.util.List;
  * 描述:
  */
 @RestController
-@RequestMapping(value = "/login")
+@RequestMapping("/login")
 public class CtrlLogin
 {
     @Autowired
@@ -27,7 +27,7 @@ public class CtrlLogin
     @Autowired
     SysUserServiceImpl sysUserService;
 
-    @RequestMapping(value = "/test")
+    @RequestMapping("/test")
     public String test()
     {
         return "测试112";

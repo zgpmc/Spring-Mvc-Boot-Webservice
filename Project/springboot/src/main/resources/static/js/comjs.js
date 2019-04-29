@@ -17,12 +17,7 @@ $.extend(comjs, {
     },
     //获取网站虚拟路径
     gethome: function () {
-        var strFullPath = window.document.location.href;
-        var strPath = window.document.location.pathname;
-        var pos = strFullPath.indexOf(strPath);
-        var prePath = strFullPath.substring(0, pos);
-        var postPath = strPath.substring(0, strPath.substr(1).indexOf('/') + 2);
-        var url = prePath + postPath;
+        var url = "http://" + window.document.location.host + "/";
         return url;
     },
     //生成guid
