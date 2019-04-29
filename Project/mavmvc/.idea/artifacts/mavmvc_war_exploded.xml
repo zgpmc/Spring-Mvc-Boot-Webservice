@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="mavmvc:war exploded">
+  <artifact type="exploded-war" external-system-id="Maven" name="mavmvc:war exploded">
     <output-path>$PROJECT_DIR$/target/maven spring mvc</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

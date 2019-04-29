@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="springboot:war exploded">
+  <artifact type="exploded-war" external-system-id="Maven" name="springboot:war exploded">
     <output-path>$PROJECT_DIR$/../springboot/target/springbootm</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">

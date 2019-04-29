@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$" />
     <file type="web" url="file://$PROJECT_DIR$/../springboot" />
+    <file type="web" url="file://$PROJECT_DIR$/../WebService" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -10,6 +11,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../springboot/pom.xml" />
         <option value="$PROJECT_DIR$/../webservice/pom.xml" />
+        <option value="$PROJECT_DIR$/../WebService/pom.xml" />
       </list>
     </option>
   </component>

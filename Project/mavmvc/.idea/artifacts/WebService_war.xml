@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" external-system-id="Maven" name="WebService:war">
+    <output-path>$PROJECT_DIR$/../WebService/target</output-path>
+    <root id="archive" name="WebService.war">
+      <element id="artifact" artifact-name="WebService:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="axis-1.4" module-name="WebService" />
+          <element id="library" level="module" name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" module-name="WebService" />
+          <element id="library" level="module" name="axis-jaxrpc-1.4" module-name="WebService" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
