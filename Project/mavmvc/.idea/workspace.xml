@@ -10,6 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d6d6018-bbd8-424e-9f55-14d443262b33" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/../WebService/src/main/main.iml" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" afterPath="$PROJECT_DIR$/../../.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WebService_war.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/WebService_war_exploded.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,8 +68,8 @@
       <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../springboot/src/main/java/com/example/demo/server/SysUserServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+            <state relative-caret-position="170">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -472,7 +476,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../WebService" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.1230629" />
     <property name="project.structure.side.proportion" value="0.43970895" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
@@ -780,9 +784,7 @@
         </SHUTDOWN>
       </ConfigurationWrapper>
       <method>
-        <option name="BuildArtifacts" enabled="true">
-          <artifact name="WebService:war exploded" />
-        </option>
+        <option name="BuildArtifacts" enabled="true" />
       </method>
     </configuration>
     <configuration name="tomcat" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.2" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8">
@@ -903,7 +905,7 @@
       <workItem from="1552198449373" duration="8047000" />
       <workItem from="1552265861204" duration="1720000" />
       <workItem from="1552640784070" duration="4011000" />
-      <workItem from="1556246242217" duration="49230000" />
+      <workItem from="1556246242217" duration="49849000" />
     </task>
     <task id="LOCAL-00001" summary="webservice 添加maven">
       <created>1556508290448</created>
@@ -923,7 +925,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313753000" />
+    <option name="totallyTimeSpent" value="314372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
@@ -1579,8 +1581,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../springboot/src/main/java/com/example/demo/server/SysUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        <state relative-caret-position="170">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1623,7 +1625,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
-          <last-edited>dbservice-1.0.6</last-edited>
+          <last-edited>ojdbc6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1647,7 +1649,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>springboot</last-edited>
+          <last-edited>mavmvc</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1671,7 +1673,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8</last-edited>
+          <last-edited>Maven: com.fasterxml.jackson.core:jackson-core:2.9.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
