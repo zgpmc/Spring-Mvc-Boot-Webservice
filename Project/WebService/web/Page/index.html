@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<body>
+首页
+<button onclick="get()">点击</button>
+<p id="pname"></p>
+<p id="pmsg"></p>
+</body>
+<script type="text/javascript">
+    function get() {
+        var url = "http://localhost:8100/CKInfoService";
+        var method = 'getTask';
+        var pam0 = "arg0";
+        var pam1 = "arg1";
+        var pam2 = "arg2"; //
+        var p1 = '<?xml version="1.0" encoding="utf-8"?>' +
+            '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://example/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">' +
+            //'<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">'
+            '<soap:Body>' +
+            '<p:' + method + '>' +
+            //'<' + method + ' xmlns="http://example/">' +
+            '<' + pam0 + '>1</' + pam0 + '>' +
+            '<' + pam1 + '>1</' + pam1 + '>' +
+            '<' + pam2 + '>1</' + pam2 + '>' +
+            '</p:' + method + '>' +
+            //'</' + method + '>' +
+            '</soap:Body>' +
+            '</soap:Envelope>';
+        var p2 = '{"' + pam0 + '":"1","' + pam1 + '":"1","' + pam2 + '":"1"}';
+        var obj = ajax(p1, url);
+        if (!!obj) {
+            alert(obj);
+            $('#pmsg').text(obj);
+        }
+    }
+
+    function ajax(param, url) {
+        var res = null;
+        if (!param) {
+            return res;
+        }
+        $.ajax({
+            url: url,
+            data: param,
+            contentType: "text/xml",
+            type: "POST",
+            async: false,
+            dataType: 'xml',
+            success: function (data) {
+                if (!!data) {
+                    res = data.getElementsByTagName("return")[0].innerHTML;
+                }
+            },
+            error: function (err) {
+                alert(err.responseText);
+            }
+        });
+        return res;
+        $.ajax({
+            contentType: "application/json",
+            url: "http//:localhost/Service/ImportBuildingService.asmx/GetViewHByBDCDYH",
+            data: "{bdcdyh:'" + bdcdyh + "'}",
+            type: "POST",
+            async: false,
+            dataType: 'xml',
+            success: function (data) {
+                if (!!data) {
+                   alert(data)
+                }
+            },
+            error: function (err) {
+                alert(err.responseText);
+            }
+        });
+    }
+</script>
+</html>

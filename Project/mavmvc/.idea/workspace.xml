@@ -9,20 +9,8 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/controller/CtrolLogin.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d6d6018-bbd8-424e-9f55-14d443262b33" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/demo_war.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/demo_war_exploded.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mavmvc_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mavmvc_war.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/mavmvc_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/mavmvc_war_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/springboot_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/springboot_war.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/springboot_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/springboot_war_exploded.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+    <list default="true" id="5d6d6018-bbd8-424e-9f55-14d443262b33" name="Default" comment="webservice 添加maven">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/mavmvc.iml" afterPath="$PROJECT_DIR$/mavmvc.iml" />
       <change beforePath="$PROJECT_DIR$/../webservice/.gitignore" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../webservice/.mvn/wrapper/MavenWrapperDownloader.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../webservice/.mvn/wrapper/maven-wrapper.jar" afterPath="" />
@@ -109,8 +97,8 @@
       <file leaf-file-name="CKInfoService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../WebService/src/main/java/example/CKInfoService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state relative-caret-position="187">
+              <caret line="14" column="174" lean-forward="true" selection-start-line="14" selection-start-column="174" selection-end-line="14" selection-end-column="174" />
               <folding />
             </state>
           </provider>
@@ -318,8 +306,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="28" />
-    <option name="y" value="6" />
+    <option name="x" value="304" />
+    <option name="y" value="18" />
     <option name="width" value="1354" />
     <option name="height" value="854" />
   </component>
@@ -774,16 +762,23 @@
       <workItem from="1552198449373" duration="8047000" />
       <workItem from="1552265861204" duration="1720000" />
       <workItem from="1552640784070" duration="4011000" />
-      <workItem from="1556246242217" duration="38779000" />
+      <workItem from="1556246242217" duration="38987000" />
     </task>
+    <task id="LOCAL-00001" summary="webservice 添加maven">
+      <created>1556508290448</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1556508290448</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="303302000" />
+    <option name="totallyTimeSpent" value="303510000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="28" y="6" width="1354" height="854" extended-state="0" />
-    <editor active="true" />
+    <frame x="304" y="18" width="1354" height="854" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3051576" sideWeight="0.5158546" order="10" side_tool="true" content_ui="tabs" />
@@ -807,7 +802,7 @@
       <window_info id="Mybatis datasource" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26295438" sideWeight="0.49083504" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26295438" sideWeight="0.49083504" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2746426" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19112115" sideWeight="0.509165" order="7" side_tool="true" content_ui="tabs" />
@@ -867,6 +862,8 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="webservice 添加maven" />
+    <option name="LAST_COMMIT_MESSAGE" value="webservice 添加maven" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1434,8 +1431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../WebService/src/main/java/example/CKInfoService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="1" lean-forward="true" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        <state relative-caret-position="187">
+          <caret line="14" column="174" lean-forward="true" selection-start-line="14" selection-start-column="174" selection-end-line="14" selection-end-column="174" />
           <folding />
         </state>
       </provider>
