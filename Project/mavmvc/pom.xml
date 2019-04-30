@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     
     <groupId>mvc.mv</groupId>
-    <artifactId>maven spring mvc</artifactId>
+    <artifactId>mavmvc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     
-    <name>maven spring mvc</name>
+    <name>mavmvc</name>
     <!-- FIXME change it to the project's website -->
     <url>http://maven.apache.org</url>
     
@@ -76,7 +76,7 @@
     </dependencies>
     
     <build>
-        <finalName>maven spring mvc</finalName>
+        <finalName>mavmvc</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

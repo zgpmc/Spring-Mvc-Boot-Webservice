@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" external-system-id="Maven" name="mavmvc:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="maven spring mvc.war">
+    <root id="archive" name="mavmvc.war">
       <element id="artifact" artifact-name="mavmvc:war exploded" />
     </root>
   </artifact>
