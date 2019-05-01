@@ -1,7 +1,7 @@
 package com.example.demo.server;
 
-import com.example.demo.dao.SysUserService;
-import com.example.demo.mapper.SysUserMapper;
+import com.example.demo.dao.ISysUserService;
+import com.example.demo.mapper.ISysUserMapper;
 import com.example.demo.model.SysUser;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +9,11 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class SysUserServiceImpl implements SysUserService
+public class SysUserServiceImpl implements ISysUserService
 {
 
     @Resource
-    private SysUserMapper sysUserMapper;
+    private ISysUserMapper sysUserMapper;
 
     @Override
     public int insert(SysUser sysUser)

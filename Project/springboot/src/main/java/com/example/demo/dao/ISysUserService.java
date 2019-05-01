@@ -4,7 +4,7 @@ import com.example.demo.model.SysUser;
 
 import java.util.List;
 
-public interface SysUserService
+public interface ISysUserService
 {
 
     int insert(SysUser sysUser);
