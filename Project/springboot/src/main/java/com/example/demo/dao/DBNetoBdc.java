@@ -27,7 +27,7 @@ public class DBNetoBdc extends DbDao
     {
         if (config != null)
         {
-            super.dataSource = config.NetobdcDataSource();
+            //super.dataSource = config.NetobdcDataSource();
         }
         return super.dataSource;
     }

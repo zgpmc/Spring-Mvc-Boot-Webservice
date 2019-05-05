@@ -27,7 +27,7 @@ public class DBBdcInfo extends DbDao
     {
         if (config != null)
         {
-            super.dataSource = config.BdcinfoDataSource();
+            //super.dataSource = config.BdcinfoDataSource();
         }
         return super.dataSource;
     }

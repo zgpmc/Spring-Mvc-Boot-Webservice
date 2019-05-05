@@ -32,4 +32,12 @@ public class Config
     {
         return DataSourceBuilder.create().build();
     }
+
+    @Bean(name = "durid")
+    @Primary
+    @ConfigurationProperties(prefix = "spring.datasource.durid")
+    public DataSource DuridfoDataSource()
+    {
+        return DataSourceBuilder.create().build();
+    }
 }
