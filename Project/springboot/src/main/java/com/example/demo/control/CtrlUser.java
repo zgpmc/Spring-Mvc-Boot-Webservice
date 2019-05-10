@@ -1,8 +1,8 @@
 package com.example.demo.control;
 
-import com.example.demo.model.User;
-import com.example.demo.server.UserServiceImpl;
-import com.github.pagehelper.Page;
+import com.example.demo.model.CUS_INFO;
+import com.example.demo.server.ImplICus_info;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,22 +22,22 @@ import java.util.List;
 public class CtrlUser
 {
     @Autowired
-    private UserServiceImpl userServiceImpl;
+    private ImplICus_info implICus_info;
 
     @RequestMapping(value = "/user")
-    public ResponseEntity<?> getUser()
+    public ResponseEntity<?> getUser(@RequestBody(required = false) CUS_INFO cus_info)
     {
-        List<User> list = userServiceImpl.selectAll();
-        ResponseEntity<List<User>> responseEntity = new ResponseEntity<>(list, HttpStatus.OK);
+        List<CUS_INFO> list = implICus_info.selectAll(cus_info);
+        ResponseEntity<List<CUS_INFO>> responseEntity = new ResponseEntity<>(list, HttpStatus.OK);
         return responseEntity;
     }
 
 
     @RequestMapping(value = "/page")
-    public ResponseEntity<?> userPage(@RequestBody User user)
+    public ResponseEntity<?> userPage()
     {
-        Page<User> page = userServiceImpl.selectByIdOrNameOrNicknameOrPhone(user);
-        ResponseEntity<Page<User>> responseEntity = new ResponseEntity<>(page, HttpStatus.OK);
+        PageInfo<CUS_INFO> page = implICus_info.selectPage();
+        ResponseEntity<PageInfo<CUS_INFO>> responseEntity = new ResponseEntity<>(page, HttpStatus.OK);
         return responseEntity;
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 
 @SpringBootApplication
-@MapperScan(value = "com.example.demo.model")
+@MapperScan(value = "com.example.demo.mapper")
 public class DemoApplication extends SpringBootServletInitializer
 {
     /**

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.sprboot.mapper.POS_INFOMapper">
+  <resultMap id="BaseResultMap" type="com.example.sprboot.model.POS_INFO">
+    <constructor>
+      <idArg column="Pos_ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="Pos_Ratio" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="Min_Amount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="Max_Amount" javaType="java.math.BigDecimal" jdbcType="DECIMAL" />
+      <arg column="Plat_form" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Partner_Name" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Partner_Phone" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Pos_State" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MakeDate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="ModifyDate" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="Operator" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    Pos_ID, Pos_Ratio, Min_Amount, Max_Amount, Plat_form, Partner_Name, Partner_Phone, 
+    Pos_State, MakeDate, ModifyDate, Operator
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from pos_info
+    where Pos_ID = #{posId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from pos_info
+    where Pos_ID = #{posId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.sprboot.model.POS_INFO">
+    insert into pos_info (Pos_ID, Pos_Ratio, Min_Amount, 
+      Max_Amount, Plat_form, Partner_Name, 
+      Partner_Phone, Pos_State, MakeDate, 
+      ModifyDate, Operator)
+    values (#{posId,jdbcType=INTEGER}, #{posRatio,jdbcType=CHAR}, #{minAmount,jdbcType=DECIMAL}, 
+      #{maxAmount,jdbcType=DECIMAL}, #{platForm,jdbcType=VARCHAR}, #{partnerName,jdbcType=VARCHAR}, 
+      #{partnerPhone,jdbcType=VARCHAR}, #{posState,jdbcType=VARCHAR}, #{makedate,jdbcType=TIMESTAMP}, 
+      #{modifydate,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.sprboot.model.POS_INFO">
+    insert into pos_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="posId != null">
+        Pos_ID,
+      </if>
+      <if test="posRatio != null">
+        Pos_Ratio,
+      </if>
+      <if test="minAmount != null">
+        Min_Amount,
+      </if>
+      <if test="maxAmount != null">
+        Max_Amount,
+      </if>
+      <if test="platForm != null">
+        Plat_form,
+      </if>
+      <if test="partnerName != null">
+        Partner_Name,
+      </if>
+      <if test="partnerPhone != null">
+        Partner_Phone,
+      </if>
+      <if test="posState != null">
+        Pos_State,
+      </if>
+      <if test="makedate != null">
+        MakeDate,
+      </if>
+      <if test="modifydate != null">
+        ModifyDate,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="posId != null">
+        #{posId,jdbcType=INTEGER},
+      </if>
+      <if test="posRatio != null">
+        #{posRatio,jdbcType=CHAR},
+      </if>
+      <if test="minAmount != null">
+        #{minAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        #{maxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="platForm != null">
+        #{platForm,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerName != null">
+        #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerPhone != null">
+        #{partnerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="posState != null">
+        #{posState,jdbcType=VARCHAR},
+      </if>
+      <if test="makedate != null">
+        #{makedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifydate != null">
+        #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.sprboot.model.POS_INFO">
+    update pos_info
+    <set>
+      <if test="posRatio != null">
+        Pos_Ratio = #{posRatio,jdbcType=CHAR},
+      </if>
+      <if test="minAmount != null">
+        Min_Amount = #{minAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="maxAmount != null">
+        Max_Amount = #{maxAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="platForm != null">
+        Plat_form = #{platForm,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerName != null">
+        Partner_Name = #{partnerName,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerPhone != null">
+        Partner_Phone = #{partnerPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="posState != null">
+        Pos_State = #{posState,jdbcType=VARCHAR},
+      </if>
+      <if test="makedate != null">
+        MakeDate = #{makedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifydate != null">
+        ModifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Pos_ID = #{posId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.sprboot.model.POS_INFO">
+    update pos_info
+    set Pos_Ratio = #{posRatio,jdbcType=CHAR},
+      Min_Amount = #{minAmount,jdbcType=DECIMAL},
+      Max_Amount = #{maxAmount,jdbcType=DECIMAL},
+      Plat_form = #{platForm,jdbcType=VARCHAR},
+      Partner_Name = #{partnerName,jdbcType=VARCHAR},
+      Partner_Phone = #{partnerPhone,jdbcType=VARCHAR},
+      Pos_State = #{posState,jdbcType=VARCHAR},
+      MakeDate = #{makedate,jdbcType=TIMESTAMP},
+      ModifyDate = #{modifydate,jdbcType=TIMESTAMP},
+      Operator = #{operator,jdbcType=VARCHAR}
+    where Pos_ID = #{posId,jdbcType=INTEGER}
+  </update>
+</mapper>

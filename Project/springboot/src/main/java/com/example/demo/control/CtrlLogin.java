@@ -1,8 +1,8 @@
 package com.example.demo.control;
 
-import com.example.demo.model.SysUser;
+import com.example.demo.model.User;
 import com.example.demo.server.ServLogin;
-import com.example.demo.server.SysUserServiceImpl;
+import com.example.demo.server.UserServiceImpl;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +25,7 @@ public class CtrlLogin
     @Autowired
     private ServLogin servLogin;
     @Autowired
-    SysUserServiceImpl sysUserService;
+    UserServiceImpl userService;
 
     @RequestMapping("/test")
     public String test()
@@ -48,8 +48,8 @@ public class CtrlLogin
     @RequestMapping(value = "/my")
     public ResponseEntity<?> loginmy()
     {
-        List<SysUser> listuser = sysUserService.findAll();
-        ResponseEntity<List<SysUser>> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);
+        List<User> listuser = userService.selectAll();
+        ResponseEntity<List<User>> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);
         return responseEntity;
     }
 }

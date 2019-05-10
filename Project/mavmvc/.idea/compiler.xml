@@ -20,6 +20,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
         <module name="mavmvc" />
+        <module name="sprboot" />
         <module name="springboot" />
         <module name="WebService" />
         <module name="webservice" />
@@ -27,7 +28,10 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="1.8" />
+      <module name="mavmvc" target="1.8" />
       <module name="mvcwebserver" target="1.8" />
+      <module name="springboot" target="1.8" />
+      <module name="WebService" target="1.8" />
       <module name="webservice" target="1.8" />
     </bytecodeTargetLevel>
   </component>

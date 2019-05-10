@@ -1,15 +1,12 @@
-/*******************************************************************************
- * Copyright (c) 2019 - 3 -20 我公司
- ******************************************************************************/
+package com.example.sprboot.model.extpand;
 
-package com.example.demo.model;
-
-import org.springframework.stereotype.Component;
-
-@Component
-public class SysUser
+/**
+ * 创建时间:2019/05/10
+ * 创建人:pmc
+ * 描述:
+ */
+public class User
 {
-
     private String userid;
     private String loginname;
     private String username;
@@ -24,7 +21,6 @@ public class SysUser
         this.userid = userid;
     }
 
-
     public String getLoginname()
     {
         return loginname;
@@ -34,7 +30,6 @@ public class SysUser
     {
         this.loginname = loginname;
     }
-
 
     public String getUsername()
     {

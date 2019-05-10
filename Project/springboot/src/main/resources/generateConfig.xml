@@ -14,8 +14,8 @@
         <!--数据库链接URL，用户名、密码 -->
         <!--用8.0.11启动项目连接数据库的时候,主要就是新版本有新特性，首先，最新官方支持将com.mysql.jdbc.Driver改为com.mysql.cj.jdbc.Driver，此外mysql8.0是不需要建立ssl连接的，你需要显示关闭，即url中的useSSL=false；最后你需要设置CST，CST可视为美国、澳大利亚、古巴或中国的标准时间。serverTimezone是设置时区的-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/isql?serverTimezone=UTC"
-                        userId="root" password="123456" />
+                        connectionURL="jdbc:mysql://localhost:3306/creditcard?serverTimezone=UTC"
+                        userId="pmc" password="123456" />
         <!--mysql8.0以下用如下写法-->
         <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/isql"                         userId="root" password="123456" />-->
         <!--类型配置-->
@@ -40,21 +40,21 @@
         </javaModelGenerator>
         <!-- 生成映射文件的包名和位置-->
         <!-- targetPackage 和 targetProject：生成的 mapper 文件的包和位置 -->
-        <sqlMapGenerator targetPackage="mybaties.mapper" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
         <!-- 生成DAO的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.dao" targetProject="src\main\java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mapper" targetProject="src\main\java">
             <property name="enableSubPackages" value="true" />
             <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
             <!--<property name="enableSubPackages" value="false" />-->
         </javaClientGenerator>
         <!--要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
-        <table tableName="i_user" domainObjectName="I_USER"
+        <table tableName="cus_info" domainObjectName="CUS_INFO"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="i_commodity" domainObjectName="I_COMMODITY"
+        <table tableName="pos_info" domainObjectName="POS_INFO"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>

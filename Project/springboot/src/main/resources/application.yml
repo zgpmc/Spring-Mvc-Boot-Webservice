@@ -1,0 +1,69 @@
+server:
+  port: 8100
+  servlet:
+    session:
+      timeout: 20m
+  error:
+    path: error.html
+spring:
+  datasource:
+    druid:
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: pmc
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+#连接池参数，初始数、最大数、最小数、获取连接等待超时时间（毫秒）
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+##1
+#spring.datasource.bdcinfo.driver-class-name=oracle.jdbc.driver.OracleDriver
+#spring.datasource.bdcinfo.jdbc-url=jdbc:oracle:thin:@//192.168.0.182:1521/orcl
+#spring.datasource.bdcinfo.username=BDCINFO
+#spring.datasource.bdcinfo.password=1
+##2
+#spring.datasource.netobdc.driver-class-name=oracle.jdbc.driver.OracleDriver
+#spring.datasource.netobdc.jdbc-url=jdbc:oracle:thin:@//192.168.0.182:1521/orcl
+#spring.datasource.netobdc.username=netobdc
+#spring.datasource.netobdc.password=1
+#bdcinfo
+    bdcinfo:
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: pmc
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      #连接池参数，初始数、最大数、最小数、获取连接等待超时时间（毫秒）
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+    #netobdc
+    netobdc:
+      type: com.alibaba.druid.pool.DruidDataSource
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      username: pmc
+      password: 123456
+      driver-class-name: com.mysql.jdbc.Driver
+      #连接池参数，初始数、最大数、最小数、获取连接等待超时时间（毫秒）
+      initial-size: 5
+      max-active: 20
+      min-idle: 5
+      max-wait: 60000
+#mybites
+mybatis:
+  #对应实体类路径
+  typeAliasesPackage: com.example.demo.model
+  mapperLocations: classpath*:mapper/*.xml
+  #控制台打印sql
+  configuration:
+    log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl
+#pagehelper设置分页数据库类型
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+  returnPageInfo: check
