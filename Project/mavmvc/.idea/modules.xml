@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../WebService/WebService.iml" filepath="$PROJECT_DIR$/../WebService/WebService.iml" />
       <module fileurl="file://$PROJECT_DIR$/mavmvc.iml" filepath="$PROJECT_DIR$/mavmvc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../springboot/springboot.iml" filepath="$PROJECT_DIR$/../springboot/springboot.iml" />
     </modules>
   </component>
 </project>

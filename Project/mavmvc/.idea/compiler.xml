@@ -21,7 +21,6 @@
         <module name="demo" />
         <module name="mavmvc" />
         <module name="sprboot" />
-        <module name="springboot" />
         <module name="WebService" />
         <module name="webservice" />
       </profile>

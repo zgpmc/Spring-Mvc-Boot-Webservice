@@ -9,7 +9,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../springboot/pom.xml" />
         <option value="$PROJECT_DIR$/../webservice/pom.xml" />
         <option value="$PROJECT_DIR$/../WebService/pom.xml" />
         <option value="$PROJECT_DIR$/../sprboot/pom.xml" />
