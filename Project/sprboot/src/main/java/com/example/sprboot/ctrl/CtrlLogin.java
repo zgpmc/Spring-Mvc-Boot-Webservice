@@ -1,4 +1,4 @@
-package com.example.sprboot.control;
+package com.example.sprboot.ctrl;
 
 import com.example.sprboot.model.CUS_INFO;
 import com.example.sprboot.service.ImplCus_info;
