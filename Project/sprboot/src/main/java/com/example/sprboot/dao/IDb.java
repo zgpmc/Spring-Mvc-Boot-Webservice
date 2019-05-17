@@ -11,33 +11,19 @@ public interface IDb
 {
     public <T> List<T> selectTList(Class<T> tClass, String SQL, Object[] params);
 
-    //public <T> List<T> selectTList(Class<T> tClass, String SQL);
-
     public <T> List<String> selectStringList(String SQL, Object[] params);
-
-    //public <T> List<String> selectStringList(String SQL);
 
     public <T extends Number> List<T> selectNumberList(String SQL, Object[] params);
 
-    //public <T extends Number> List<T> selectNumberList(String SQL);
-
     public <T> T selectT(Class<T> tClass, String SQL, Object[] params);
 
-    //public <T> T selectT(Class<T> tClass, String SQL);
-
     public int insertSQL(String SQL, Object[] params);
-
-    //public int insertSQL(String SQL);
 
     public int insertT(Object object, String tablename);
 
     public int updateSQL(String SQL, Object[] params);
 
-    //public int updateSQL(String SQL);
-
     public int deleteSQL(String SQL, Object[] params);
-
-    //public int deleteSQL(String SQL);
 
     default <T> List<T> selectTList(Class<T> tClass, String SQL)
     {

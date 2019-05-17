@@ -28,7 +28,8 @@ public class ServerLogin
 
     public ResponseEntity<?> loginbdc(String name, String pas)
     {
-        String sql = "select t.userid,t.loginname,t.username from bdcinfo.sys_user t";
+        //String sql = "select t.userid,t.loginname,t.username from bdcinfo.sys_user t";
+        String sql="SELECT t.Cus_Id uerid,t.Cus_Name loginname,t.Cus_Name username FROM cus_info t";
         List<User> listuser = dbBdcInfo.selectTList(User.class, sql);
 
         ResponseEntity<List<User>> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);
@@ -37,7 +38,7 @@ public class ServerLogin
 
     public ResponseEntity<?> loginnet(String name, String pas)
     {
-        String sql = "select u.login_name loginname,u.user_name username,u.region_code userid from netobdc.st_user u where rownum <11";
+        String sql = "SELECT t.Cus_Id uerid,t.Cus_Name loginname,t.Cus_Name username FROM cus_info t";
         List<User> listuser = dbNetoBdc.selectTList(User.class, sql);
 
         ResponseEntity<List<User>> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);

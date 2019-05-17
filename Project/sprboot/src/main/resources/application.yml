@@ -9,7 +9,7 @@ spring:
   datasource:
     #主数据连接datasource下面没有别的层级 直接配置 多数据源时 增加一个层级如bdcinfo 然后下面在接配置
     type: com.alibaba.druid.pool.DruidDataSource
-    jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: pmc
     password: 123456
       #在mysql8之前 请用com.mysql.jdbc.Driver
@@ -32,7 +32,7 @@ spring:
 #bdcinfo
     bdcinfo:
       type: com.alibaba.druid.pool.DruidDataSource
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       username: pmc
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -48,7 +48,7 @@ spring:
     #netobdc
     netobdc:
       type: com.alibaba.druid.pool.DruidDataSource
-      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/creditcard?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
       username: pmc
       password: 123456
       driver-class-name: com.mysql.cj.jdbc.Driver
@@ -80,7 +80,7 @@ spring:
         # 连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
         max-wait: 10000
         # 关闭超时时间
-        shutdown-timeout: 100
+        shutdown-timeout: 1000
 #mybites
 mybatis:
   #对应实体类路径
