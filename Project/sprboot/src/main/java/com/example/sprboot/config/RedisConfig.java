@@ -1,10 +1,6 @@
 package com.example.sprboot.config;
 
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectMapper.DefaultTyping;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.*;
 import org.springframework.cache.interceptor.KeyGenerator;
@@ -13,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -21,7 +16,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
 import java.time.Duration;
 
 /**
@@ -75,6 +69,7 @@ public class RedisConfig extends CachingConfigurerSupport
                 {
                     valuearr = cacheEvict.value();
                 }
+                stringBuilder.append(method.getName());
                 stringBuilder.append(valuearr[0]);
                 for (Object object : objects)
                 {
@@ -91,10 +86,8 @@ public class RedisConfig extends CachingConfigurerSupport
     public CacheManager cacheManager()
     {
         RedisCacheManager.RedisCacheManagerBuilder redisCacheManagerBuilder = RedisCacheManager.RedisCacheManagerBuilder.fromConnectionFactory(redisConnectionFactory);
-        RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().disableCachingNullValues().entryTtl(this.timeToLive).serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(keySerializer())).serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer()));
-        //redisCacheConfiguration = redisCacheConfiguration.entryTtl(Duration.ofMillis(30l)).disableCachingNullValues();//设置缓存时间30min和空值不缓存
-        //return redisCacheManagerBuilder.cacheDefaults(redisCacheConfiguration).build();
-        return redisCacheManagerBuilder.cacheDefaults(redisCacheConfiguration).build();//启动事务
+        RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig().disableCachingNullValues().entryTtl(this.timeToLive).serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(keySerializer())).serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(valueSerializer()));//更改redis默认序列化方式，使数据在redis可看懂
+        return redisCacheManagerBuilder.cacheDefaults(redisCacheConfiguration).build();
     }
 
     /**
@@ -102,7 +95,7 @@ public class RedisConfig extends CachingConfigurerSupport
      *
      * @return RedisTemplate
      */
-    @Bean
+    /*@Bean
     @SuppressWarnings("unchecked")
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory)
     {
@@ -122,8 +115,7 @@ public class RedisConfig extends CachingConfigurerSupport
         redisTemplate.setHashValueSerializer(jackson2JsonRedisSerializer);//hash value序列化
 
         return redisTemplate;
-    }
-
+    }*/
     private RedisSerializer<String> keySerializer()
     {
         return new StringRedisSerializer();

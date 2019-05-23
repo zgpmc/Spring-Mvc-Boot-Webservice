@@ -36,7 +36,7 @@ public class CtrlUser
     }
 
     @RequestMapping(value = "/users")
-    public ResponseEntity<?> getUsers(@RequestBody(required = false) CUS_INFO cus_info)
+    public ResponseEntity<?> getUsers(@RequestBody() CUS_INFO cus_info)
     {
         List<CUS_INFO> list = implICus_info.selectAll(cus_info);
         ResponseEntity<List<CUS_INFO>> responseEntity = new ResponseEntity<>(list, HttpStatus.OK);

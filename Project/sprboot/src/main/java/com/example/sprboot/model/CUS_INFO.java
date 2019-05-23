@@ -1,9 +1,7 @@
 package com.example.sprboot.model;
 
-import com.example.sprboot.common.dateserializer.DateJsonDeserializer;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -21,11 +19,11 @@ public class CUS_INFO implements Serializable
     private String cusPhone2;
 
     private String cusPhone3;
-    @JsonSerialize(using = DateSerializer.class)
-    @JsonDeserialize(using = DateJsonDeserializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date makedate;
-    @JsonSerialize(using = DateSerializer.class)
-    @JsonDeserialize(using = DateJsonDeserializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date modifydate;
 
     private String operator;

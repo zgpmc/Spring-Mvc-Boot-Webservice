@@ -59,15 +59,9 @@
             <if test="cusPhone3 != null">
                 Cus_Phone3,
             </if>
-            <if test="makedate != null">
-                MakeDate,
-            </if>
-            <if test="modifydate != null">
-                ModifyDate,
-            </if>
-            <if test="operator != null">
-                Operator,
-            </if>
+            MakeDate,
+            ModifyDate
+            ,Operator
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="cusId != null">
@@ -88,15 +82,18 @@
             <if test="cusPhone3 != null">
                 #{cusPhone3,jdbcType=VARCHAR},
             </if>
-            <if test="makedate != null">
-                #{makedate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="modifydate != null">
-                #{modifydate,jdbcType=TIMESTAMP},
-            </if>
-            <if test="operator != null">
-                #{operator,jdbcType=VARCHAR},
-            </if>
+            <choose>
+                <when test="makedate != null">#{makedate,jdbcType=TIMESTAMP},</when>
+                <otherwise>now(),</otherwise>
+            </choose>
+            <choose>
+                <when test="modifydate != null">#{modifydate,jdbcType=TIMESTAMP},</when>
+                <otherwise>now(),</otherwise>
+            </choose>
+            <choose>
+                <when test="operator != null">#{operator,jdbcType=VARCHAR},</when>
+                <otherwise>'admin',</otherwise>
+            </choose>
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="com.example.sprboot.model.CUS_INFO">
