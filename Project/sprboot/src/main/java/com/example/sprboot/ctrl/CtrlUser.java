@@ -9,8 +9,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -73,5 +82,35 @@ public class CtrlUser
         Integer num = implICus_info.deleteByPrimaryKey(cus_info.getCusId());
         ResponseEntity<Integer> responseEntity = new ResponseEntity<>(num, HttpStatus.OK);
         return responseEntity;
+    }
+
+    @RequestMapping(value = "/file")
+    public String file(@RequestParam(value = "file") MultipartFile file, RedirectAttributes redirectAttributes)
+    {
+        if (file.isEmpty())
+        {
+            redirectAttributes.addFlashAttribute("请选择上传的文件！");
+        }
+        try
+        {
+            byte[] filebyte = file.getBytes();
+            String filename = file.getOriginalFilename();
+            Path path = Paths.get("/upfile/" + filename);
+            File dic = new File(path.toUri());
+            String projectPath = System.getProperty("user.dir");
+            System.out.println(projectPath);
+            if (!dic.exists())
+            {
+                dic.mkdirs();
+            }
+            ByteBuffer byteBuffer=ByteBuffer.allocate(1024);
+            //todo
+            Files.write(path, filebyte);
+            redirectAttributes.addFlashAttribute("msg", "成功！");
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return "完成！";
     }
 }

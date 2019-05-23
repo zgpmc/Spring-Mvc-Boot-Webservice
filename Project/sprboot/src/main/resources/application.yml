@@ -57,6 +57,12 @@ spring:
       max-active: 20
       min-idle: 5
       max-wait: 60000
+  servlet:
+    multipart:
+      #上传文件最大限制
+      max-file-size: 1MB
+      #请求最大限制
+      max-request-size: 10MB
   #redies
   redis:
     # Redis数据库索引（默认为0）
