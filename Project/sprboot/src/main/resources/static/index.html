@@ -19,6 +19,7 @@
 <p id="err"></p>
 <h3>hello word</h3>
 <h2><a href="page/main.html">主页</a></h2>
+<a href="page/sys.html">查看系统属性</a>
 <h3>测试</h3>
 <p id="test"></p>
 <br>
@@ -30,9 +31,11 @@
 <br/>
 <h3>mysql</h3>
 <p id="my"></p>
-<form action="/user/file" enctype="multipart/form-data" method="post">
-    <span>选择文件:</span><input type="file" name="file">
-    <input type="submit" value="上传">
+<form id="form1" action="/user/file" enctype="multipart/form-data" method="post">
+    <span>选择文件1:</span><input type="file" name="file">
+    <span>选择文件2:</span><input type="file" name="file">
+    <input type="button" value="上传" onclick="upfile()">
+    <a href="/user/down">下载</a>
 </form>
 <script type="text/javascript">
     var test = comjs.gethome() + "login/test";
@@ -59,6 +62,44 @@
                 $('#err').text(err.responseText);
             }
         });
+    }
+
+    function upfile() {
+        /*var form = $('#form1');//可以上传但是会跳转页面
+        form.submit();*/
+        var files = $('#form1>input[type="file"]');
+        var formd = new FormData();
+        var filenum = 0;
+        for (var f = 0; f < files.length; f++) {
+            formd.append("file", files[f].files[0]);
+            if (files[f].files.length == 0) {
+                filenum++;
+            }
+        }
+        if (filenum == files.length) {
+            alert("请选择文件");
+            return;
+        }
+        //ajax异步上传文件必须写processData: false,contentType: false,两个属性 否则后台无法接受到数据
+        $.ajax({
+            url: comjs.gethome() + 'user/file',
+            data: formd,
+            async: true,
+            processData: false,
+            contentType: false,
+            type: "post",
+            success: function (msg) {
+                alert(msg);
+            },
+            error: function (err) {
+                $('#err').text(err.responseText);
+            }
+        });
+    }
+
+    function downfile() {
+        var url = comjs.gethome() + "user/down";
+        $.post({url:url,});
     }
 </script>
 </body>

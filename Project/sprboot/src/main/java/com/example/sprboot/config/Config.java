@@ -2,10 +2,12 @@ package com.example.sprboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
+import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import javax.servlet.MultipartConfigElement;
 import javax.sql.DataSource;
 
 /**
@@ -44,5 +46,19 @@ public class Config
     public DataSource NetobdcDataSource()
     {
         return DataSourceBuilder.create().build();
+    }
+    /**
+     * 文件上传配置
+     * @return
+     */
+    @Bean
+    public MultipartConfigElement multipartConfigElement() {
+        MultipartConfigFactory factory = new MultipartConfigFactory();
+
+        //单个文件最大
+        factory.setMaxFileSize("10240KB"); //KB,MB
+        /// 设置总上传数据总大小
+        factory.setMaxRequestSize("102400KB");
+        return factory.createMultipartConfig();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.sprboot.ctrl;
 
+import com.example.sprboot.common.ToolFile;
 import com.example.sprboot.model.CUS_INFO;
 import com.example.sprboot.service.ImplCus_info;
 import com.github.pagehelper.PageInfo;
@@ -14,12 +15,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.file.Files;
+import java.io.OutputStream;
+import java.math.BigDecimal;
+import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,6 +36,7 @@ import java.util.List;
 @RequestMapping(value = "/user")
 public class CtrlUser
 {
+    ToolFile toolFile = new ToolFile();
     @Autowired
     private ImplCus_info implICus_info;
     @Autowired
@@ -85,32 +91,73 @@ public class CtrlUser
     }
 
     @RequestMapping(value = "/file")
-    public String file(@RequestParam(value = "file") MultipartFile file, RedirectAttributes redirectAttributes)
+    public String file(@RequestParam(value = "file") List<MultipartFile> fileList, RedirectAttributes redirectAttributes)
     {
-        if (file.isEmpty())
+        String msg = "";
+        Iterator<MultipartFile> iterableFile = fileList.iterator();
+        while (iterableFile.hasNext())
         {
-            redirectAttributes.addFlashAttribute("请选择上传的文件！");
-        }
-        try
-        {
-            byte[] filebyte = file.getBytes();
-            String filename = file.getOriginalFilename();
-            Path path = Paths.get("/upfile/" + filename);
-            File dic = new File(path.toUri());
-            String projectPath = System.getProperty("user.dir");
-            System.out.println(projectPath);
-            if (!dic.exists())
+            MultipartFile file = iterableFile.next();
+            if (file.isEmpty())
             {
-                dic.mkdirs();
+                msg += "请选择上传的文件!";
+                redirectAttributes.addFlashAttribute("请选择上传的文件！");
+                return msg;
             }
-            ByteBuffer byteBuffer=ByteBuffer.allocate(1024);
-            //todo
-            Files.write(path, filebyte);
-            redirectAttributes.addFlashAttribute("msg", "成功！");
-        } catch (IOException e)
-        {
-            e.printStackTrace();
+            try
+            {
+                long size = file.getSize();
+                System.out.println(size);
+                String filename = file.getOriginalFilename();
+                msg += "文件:" + filename + "->大小:" + new BigDecimal("" + (float) (size / 1024)).setScale(0, BigDecimal
+                        .ROUND_HALF_UP) +
+                        "KB->";
+                String root = "/upfile/";
+                Path path = Paths.get(root + filename);
+                String projectPath = System.getProperty("user.dir");
+                System.out.println(projectPath);
+                toolFile.deleteFile(path, false);
+                toolFile.createFile(root);
+                file.transferTo(path);
+                redirectAttributes.addFlashAttribute("msg", "成功！");
+                msg += "上传成功！。";
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+                msg += "上传失败！。";
+            }
         }
-        return "完成！";
+        return msg;
+    }
+
+    @RequestMapping(value = "/down")
+    public void down(HttpServletResponse response)
+    {
+        String filepath = "F:\\upfile";
+        File fileDir = new File(filepath);
+        File[] files = toolFile.getFile(filepath);
+        if (fileDir.exists())
+        {
+            if (files.length > 0)
+            {
+                File fi = files[0];
+                try
+                {
+                    response.setContentType("application/force-download;charset=utf-8");// 设置强制下载不打开
+                    response.setHeader("Content-Disposition", "attachment; filename*=utf-8''" + URLEncoder.encode(fi.getName(), "UTF-8"));
+                    byte[] filebyte = new byte[(int) fi.length()];
+                    OutputStream outputStream = response.getOutputStream();
+                    FileInputStream fileInputStream = new FileInputStream(fi);
+                    fileInputStream.read(filebyte);
+                    outputStream.write(filebyte);
+                    outputStream.flush();
+                    outputStream.close();
+                    fileInputStream.close();
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

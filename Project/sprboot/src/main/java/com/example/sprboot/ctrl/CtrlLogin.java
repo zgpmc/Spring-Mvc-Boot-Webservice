@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * 创建时间:2019/03/14
  * 创建人:pmc
@@ -35,7 +39,7 @@ public class CtrlLogin
         cusInfo.setCusId(0);
         cusInfo.setCusName("测试");
         cusInfo.setCusIdno("测试");
-        ResponseEntity<CUS_INFO> responseEntity = new ResponseEntity<>(cusInfo, HttpStatus.OK);
+        ResponseEntity<?> responseEntity = new ResponseEntity<>(cusInfo, HttpStatus.OK);
         return responseEntity;
     }
 
@@ -58,7 +62,21 @@ public class CtrlLogin
         CUS_INFO listuser = implCus_info.selectByPrimaryKey(id);
         //redisTemplate.opsForValue().set("c" + id, cus_info);
         System.out.println("c" + id + "->" + redisTemplate.hasKey("c" + id));
-        ResponseEntity<CUS_INFO> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);
+        ResponseEntity<?> responseEntity = new ResponseEntity<>(listuser, HttpStatus.OK);
+        return responseEntity;
+    }
+
+    @RequestMapping(value = "/sys")
+    public ResponseEntity<?> sys()
+    {
+        Properties properties = System.getProperties();
+        System.out.println(properties.size());
+        Map<String, Object> map = new HashMap<>();
+        for (Object o : properties.keySet())
+        {
+            map.put(o.toString(), properties.get(o));
+        }
+        ResponseEntity<?> responseEntity = new ResponseEntity<>(map, HttpStatus.OK);
         return responseEntity;
     }
 }

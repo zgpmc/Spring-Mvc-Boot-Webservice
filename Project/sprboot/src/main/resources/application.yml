@@ -63,6 +63,7 @@ spring:
       max-file-size: 1MB
       #请求最大限制
       max-request-size: 10MB
+      location: F:\
   #redies
   redis:
     # Redis数据库索引（默认为0）
