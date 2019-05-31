@@ -25,6 +25,6 @@ hs_err_pid*
 **/.idea/libraries
 #**/.idea/workspace.xml
 **/.idea/dictionaries
-**/target/**/*.*
-**/out/**/*.*
+**/target
+**/out
 !/*/*/lib/*.*
